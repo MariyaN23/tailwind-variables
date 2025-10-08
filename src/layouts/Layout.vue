@@ -1,11 +1,22 @@
 <script setup lang="ts">
+import Button from "primevue/button"
 
+const toggleDarkMode = () => {
+  document.documentElement.classList.toggle('my-app-dark')
+}
 </script>
 
 <template>
   <header>
-    <div>
-      <h1 class="text-xl">Tailwind variables</h1>
+    <div class="flex justify-between items-center">
+      <h1 class="text-xl">Tailwind variables converter</h1>
+      <Button
+          aria-label="Toggle Dark Mode"
+          icon="pi pi-sun"
+          @click="toggleDarkMode()"
+          rounded
+          variant="outlined"
+      />
     </div>
   </header>
   <main>
@@ -15,7 +26,7 @@
 
 <style scoped>
 header,
-footer {
+main {
   padding: 1rem;
   width: 100%;
   max-width: 1024px;
