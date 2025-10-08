@@ -1,4 +1,4 @@
-interface Unit {
+export interface Unit {
     [key: number]: string
 }
 
@@ -16,4 +16,12 @@ export const fontSizes: Unit = {
     72: 'text-7xl',
     96: 'text-8xl',
     128: 'text-8xl',
+}
+
+export const breakpoints: Unit = {
+    640: 'sm',
+    768: 'md',
+    1024: 'lg',
+    1280: 'xl',
+    1536: '2xl',
 }

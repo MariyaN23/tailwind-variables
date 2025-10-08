@@ -3,7 +3,9 @@ import InputNumber from 'primevue/inputnumber';
 import InputGroup from 'primevue/inputgroup';
 import InputGroupAddon from 'primevue/inputgroupaddon';
 import { computed, ref } from "vue";
-import { getFontSizeName } from "./helpers"
+import { getUnitName } from "./helpers"
+import { breakpoints, fontSizes } from "@/pages/main/tailwind-units.ts";
+import Value from "@/pages/main/value.vue";
 
 const basePixel = ref(16)
 const pixels = ref(basePixel.value)
@@ -15,7 +17,8 @@ const rem = computed({
     pixels.value = newValue * basePixel.value
   }
 })
-const tailwindValue = computed(() => getFontSizeName(pixels.value))
+const fontSize = computed(() => getUnitName(fontSizes, pixels.value))
+const breakpoint = computed(() => getUnitName(breakpoints, pixels.value))
 </script>
 
 <template>
@@ -57,15 +60,11 @@ const tailwindValue = computed(() => getFontSizeName(pixels.value))
         <p>
           Related tailwind units
         </p>
-        <div class="flex gap-2">
+        <div class="grid grid-cols-2">
           <p>Font size:</p>
-          <span v-if="tailwindValue" class="font-semibold text-primary-500">
-            {{ tailwindValue }}
-          </span>
-          <div v-else class="flex flex-col font-semibold text-surface-500">
-            <span>{{ `text-[${pixels}px]` }}</span>
-            <span>{{ `text-[${rem.toFixed(3)}rem]` }}</span>
-          </div>
+          <Value :value="fontSize" />
+          <p>Breakpoint:</p>
+          <Value :value="breakpoint" />
         </div>
       </div>
     </div>

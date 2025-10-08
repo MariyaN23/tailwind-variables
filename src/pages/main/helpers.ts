@@ -1,8 +1,10 @@
-import { fontSizes } from "@/pages/main/tailwind-units.ts";
+import { type Unit } from "@/pages/main/tailwind-units.ts";
 
-export const getFontSizeName = (px: number) => {
-    if (fontSizes[px]) {
-        return fontSizes[px]
+export type UnitName = string | false
+
+export const getUnitName = (object: Unit, key: number): UnitName => {
+    if (object[key]) {
+        return object[key]
     }
     return false
 }
