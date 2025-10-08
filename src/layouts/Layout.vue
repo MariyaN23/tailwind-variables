@@ -9,10 +9,11 @@ const toggleDarkMode = () => {
 <template>
   <header>
     <div class="flex justify-between items-center">
-      <h1 class="text-xl">Tailwind variables converter</h1>
+      <h1 class="text-2xl font-bold text-primary-500">Tailwind variables converter</h1>
       <Button
           aria-label="Toggle Dark Mode"
           icon="pi pi-sun"
+          size="small"
           @click="toggleDarkMode()"
           rounded
           variant="outlined"

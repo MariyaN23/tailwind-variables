@@ -4,7 +4,7 @@ import InputGroup from 'primevue/inputgroup';
 import InputGroupAddon from 'primevue/inputgroupaddon';
 import { computed, ref } from "vue";
 import { getUnitName } from "./helpers"
-import { breakpoints, fontSizes } from "@/pages/main/tailwind-units.ts";
+import { breakpoints, fontSizes, widthValues, } from "@/pages/main/tailwind-units.ts";
 import Value from "@/pages/main/value.vue";
 
 const basePixel = ref(16)
@@ -19,6 +19,7 @@ const rem = computed({
 })
 const fontSize = computed(() => getUnitName(fontSizes, pixels.value))
 const breakpoint = computed(() => getUnitName(breakpoints, pixels.value))
+const width = computed(() => getUnitName(widthValues, rem.value))
 </script>
 
 <template>
@@ -31,10 +32,12 @@ const breakpoint = computed(() => getUnitName(breakpoints, pixels.value))
         Root element size
       </label>
       <InputNumber
-          id="rootElement"
+          input-id="rootElement"
           v-model="basePixel"
           size="small"
           :min="0"
+          mode="decimal"
+          :max-fraction-digits="3"
       />
     </div>
     <div class="grid sm:grid-cols-2 gap-4">
@@ -45,6 +48,8 @@ const breakpoint = computed(() => getUnitName(breakpoints, pixels.value))
         <InputNumber
             id="pixels"
             v-model="pixels"
+            mode="decimal"
+            :max-fraction-digits="3"
         />
       </InputGroup>
       <InputGroup>
@@ -54,6 +59,8 @@ const breakpoint = computed(() => getUnitName(breakpoints, pixels.value))
         <InputNumber
             id="rem"
             v-model="rem"
+            mode="decimal"
+            :max-fraction-digits="3"
         />
       </InputGroup>
       <div>
@@ -65,6 +72,8 @@ const breakpoint = computed(() => getUnitName(breakpoints, pixels.value))
           <Value :value="fontSize" />
           <p>Breakpoint:</p>
           <Value :value="breakpoint" />
+          <p>Width:</p>
+          <Value :value="width" />
         </div>
       </div>
     </div>

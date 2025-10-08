@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import Layout from "@/layouts/Layout.vue";
-import Main from "@/pages/main/Main.vue";
+import Converter from "@/pages/main/Converter.vue";
 </script>
 
 <template>
   <Layout>
-    <Main />
+    <Converter />
   </Layout>
 </template>
