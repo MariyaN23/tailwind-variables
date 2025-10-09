@@ -3,8 +3,8 @@ import InputNumber from 'primevue/inputnumber';
 import InputGroup from 'primevue/inputgroup';
 import InputGroupAddon from 'primevue/inputgroupaddon';
 import { computed, ref } from "vue";
-import { getUnitName } from "./helpers"
-import { borderRadius, breakpoints, fontSizes, spacingValues, } from "@/pages/main/tailwind-units.ts";
+import { getUnitName } from "../../helpers/get-unit-name.ts"
+import { borderRadius, breakpoints, fontSizes, spacingValues, } from "@/helpers/tailwind-units.ts";
 import Value from "@/pages/main/value.vue";
 
 const basePixel = ref(16)
@@ -82,16 +82,18 @@ const radius = computed(() => getUnitName(borderRadius, rem.value))
             :max-fraction-digits="3"
         />
       </InputGroup>
-      <div>
-        <p>
+      <div class="space-y-2">
+        <p class="text-primary-500 text-xl font-semibold">
           Related tailwind units
         </p>
-        <div class="grid grid-cols-2">
+        <div class="grid grid-cols-2 gap-x-4">
           <p>Font size:</p>
           <Value :value="fontSize" />
           <p>Breakpoint:</p>
           <Value :value="breakpoint" />
-          <p>Spacing <small>(padding, margin, width, height...)</small>:</p>
+          <p>Spacing <small class="text-surface-500">
+            (padding, margin, width, height...)
+          </small>:</p>
           <Value :value="spacing" />
           <p>Border radius:</p>
           <Value :value="radius" />

@@ -1,4 +1,4 @@
-import { type Unit } from "@/pages/main/tailwind-units.ts";
+import { type Unit } from "@/helpers/tailwind-units.ts";
 
 export type UnitName = string | false
 

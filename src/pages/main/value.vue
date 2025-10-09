@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { UnitName } from "@/pages/main/helpers.ts";
+import type { UnitName } from "@/helpers/get-unit-name.ts";
 
 defineProps<{
   value: UnitName
