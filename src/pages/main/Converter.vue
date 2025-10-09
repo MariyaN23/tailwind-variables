@@ -4,10 +4,11 @@ import InputGroup from 'primevue/inputgroup';
 import InputGroupAddon from 'primevue/inputgroupaddon';
 import { computed, ref } from "vue";
 import { getUnitName } from "./helpers"
-import { breakpoints, fontSizes, widthValues, } from "@/pages/main/tailwind-units.ts";
+import { borderRadius, breakpoints, fontSizes, spacingValues, } from "@/pages/main/tailwind-units.ts";
 import Value from "@/pages/main/value.vue";
 
 const basePixel = ref(16)
+const baseSpacing = ref(0.25)
 const pixels = ref(basePixel.value)
 const rem = computed({
   get() {
@@ -17,9 +18,13 @@ const rem = computed({
     pixels.value = newValue * basePixel.value
   }
 })
-const fontSize = computed(() => getUnitName(fontSizes, pixels.value))
+const fontSize = computed(() => getUnitName(fontSizes, rem.value))
 const breakpoint = computed(() => getUnitName(breakpoints, pixels.value))
-const width = computed(() => getUnitName(widthValues, rem.value))
+const spacing = computed(() => {
+  const value = baseSpacing.value * rem.value * basePixel.value
+  return getUnitName(spacingValues, value)
+})
+const radius = computed(() => getUnitName(borderRadius, rem.value))
 </script>
 
 <template>
@@ -29,11 +34,25 @@ const width = computed(() => getUnitName(widthValues, rem.value))
           for="rootElement"
           class="text-sm"
       >
-        Root element size
+        Root element size in px
       </label>
       <InputNumber
           input-id="rootElement"
           v-model="basePixel"
+          size="small"
+          :min="0"
+          mode="decimal"
+          :max-fraction-digits="3"
+      />
+      <label
+          for="baseSpacing"
+          class="text-sm"
+      >
+        Spacing in rem
+      </label>
+      <InputNumber
+          input-id="baseSpacing"
+          v-model="baseSpacing"
           size="small"
           :min="0"
           mode="decimal"
@@ -72,8 +91,10 @@ const width = computed(() => getUnitName(widthValues, rem.value))
           <Value :value="fontSize" />
           <p>Breakpoint:</p>
           <Value :value="breakpoint" />
-          <p>Width:</p>
-          <Value :value="width" />
+          <p>Spacing <small>(padding, margin, width, height...)</small>:</p>
+          <Value :value="spacing" />
+          <p>Border radius:</p>
+          <Value :value="radius" />
         </div>
       </div>
     </div>
