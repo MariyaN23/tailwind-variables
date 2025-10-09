@@ -1,10 +1,25 @@
 <script setup lang="ts">
 import Button from "primevue/button"
 import { paths } from "@/routes/paths.ts";
+import { onMounted, ref, watch } from "vue";
 
-const toggleDarkMode = () => {
-  document.documentElement.classList.toggle('my-app-dark')
+const isDark = ref(false)
+const toggleTheme = () => {
+  isDark.value = !isDark.value
 }
+const applyTheme = () => {
+  const theme = isDark.value ? 'dark' : 'light'
+  document.documentElement.classList.toggle('dark', isDark.value)
+  document.documentElement.setAttribute('data-theme', theme)
+  localStorage.setItem('theme', theme)
+}
+onMounted(() => {
+  const savedTheme = localStorage.getItem('theme')
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+  isDark.value = savedTheme ? savedTheme === 'dark' : prefersDark
+  applyTheme()
+})
+watch(isDark, () => applyTheme())
 </script>
 
 <template>
@@ -21,7 +36,7 @@ const toggleDarkMode = () => {
           aria-label="Toggle Dark Mode"
           icon="pi pi-sun"
           size="small"
-          @click="toggleDarkMode()"
+          @click="toggleTheme()"
           rounded
           variant="outlined"
       />
