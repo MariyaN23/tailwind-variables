@@ -1,42 +1,25 @@
-# tailwind-variables
+# 〰 Tailwind variables converter 〰
 
-This template should help get you started developing with Vue 3 in Vite.
+## Application Description
 
-## Recommended IDE Setup
+This app was developed to speed up development when using Tailwind CSS. \
+It's really helpful when it's needed to decide which one of sizes should be applied when creating website based on Figma mockup.
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Functionality
+With this converter you can see value in px, rem and related tailwind variables (if available) at the same time. \
+Available Tailwind variables: 
+- font-size
+- breakpoint
+- spacing (padding, margin, width, height etc.)
+- border-radius
+You can change root element font-size and base tailwind base spacing. 
 
-## Recommended Browser Setup
+Also, there is a list of font-weight utilities to accelerate the selection of the required variable.
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd) 
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+## Stylization
+Tailwind CSS
 
-## Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
-```sh
-pnpm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-pnpm dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-pnpm build
-```
+## Tools
+- TypeScript
+- Vue 3
+- Vue Router
