@@ -67,17 +67,17 @@ export const spacingValues: Unit = {
 }
 
 export const borderRadius: Unit = {
-    //key in rem
+    //key in px
     0: 'rounded-none',
-    0.125: 'rounded-xs',
-    0.25: 'rounded-sm',
-    0.375: 'rounded-md',
-    0.5: 'rounded-lg',
-    0.75: 'rounded-xl',
-    1: 'rounded-2xl',
-    1.5: 'rounded-3xl',
-    2: 'rounded-4xl',
-    624.938: 'rounded-full',
+    2: 'rounded-xs',
+    4: 'rounded-sm',
+    6: 'rounded-md',
+    8: 'rounded-lg',
+    12: 'rounded-xl',
+    16: 'rounded-2xl',
+    24: 'rounded-3xl',
+    32: 'rounded-4xl',
+    9999: 'rounded-full',
 }
 
 export const fontWeights: Unit = {
@@ -90,4 +90,22 @@ export const fontWeights: Unit = {
     700: 'font-bold',
     800: 'font-extrabold',
     900: 'font-black',
+}
+
+export const maxWidth: Unit = {
+    //key in px
+    1: 'max-w-px',
+    256: 'max-w-3xs',
+    288: 'max-w-2xs',
+    320: 'max-w-xs',
+    384: 'max-w-sm',
+    448: 'max-w-md',
+    512: 'max-w-lg',
+    576: 'max-w-xl',
+    672: 'max-w-2xl',
+    768: 'max-w-3xl',
+    896: 'max-w-4xl',
+    1024: 'max-w-5xl',
+    1152: 'max-w-6xl',
+    1280: 'max-w-7xl',
 }
