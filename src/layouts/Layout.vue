@@ -27,7 +27,7 @@ watch(isDark, () => applyTheme())
     <div class="flex justify-between items-center">
       <Button variant="text" asChild v-slot="slotProps">
         <RouterLink :to="paths.main" :class="slotProps.class">
-          <h1 class="text-2xl font-bold text-primary-500">
+          <h1 class="text-2xl font-bold text-primary-600 dark:text-primary-500">
             Tailwind variables converter
           </h1>
         </RouterLink>
@@ -41,8 +41,9 @@ watch(isDark, () => applyTheme())
           variant="outlined"
       />
     </div>
-    <Button variant="text" asChild v-slot="slotProps">
+    <Button severity="secondary" variant="text" asChild v-slot="slotProps">
       <RouterLink :to="paths.fontWeight" :class="slotProps.class">
+        <i class="pi pi-paperclip"></i>
         font-weight variables
       </RouterLink>
     </Button>

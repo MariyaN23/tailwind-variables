@@ -67,6 +67,7 @@ const radius = computed(() => getUnitName(borderRadius, pixels.value))
         </InputGroupAddon>
         <InputNumber
             id="pixels"
+            aria-label="Pixel value"
             v-model="pixels"
             mode="decimal"
             :max-fraction-digits="3"
@@ -78,13 +79,14 @@ const radius = computed(() => getUnitName(borderRadius, pixels.value))
         </InputGroupAddon>
         <InputNumber
             id="rem"
+            aria-label="Rem value"
             v-model="rem"
             mode="decimal"
             :max-fraction-digits="3"
         />
       </InputGroup>
       <div class="space-y-2">
-        <p class="text-primary-500 text-xl font-semibold">
+        <p class="text-primary-700 dark:text-primary-500 text-xl font-semibold">
           Related tailwind units
         </p>
         <div class="grid grid-cols-2 gap-x-4">
@@ -94,7 +96,7 @@ const radius = computed(() => getUnitName(borderRadius, pixels.value))
           <Value :value="breakpoint" />
           <p>Max-width:</p>
           <Value :value="width" />
-          <p>Spacing <small class="text-surface-500">
+          <p>Spacing <small class="text-surface-600 dark:text-surface-400">
             (padding, margin, width, height...)
           </small>:</p>
           <Value :value="spacing" />
