@@ -4,7 +4,14 @@ import InputGroup from 'primevue/inputgroup';
 import InputGroupAddon from 'primevue/inputgroupaddon';
 import { computed, ref } from "vue";
 import { getUnitName } from "@/helpers/get-unit-name.ts"
-import { borderRadius, breakpoints, fontSizes, maxWidth, spacingValues, } from "@/helpers/tailwind-units.ts";
+import {
+  blurFilter,
+  borderRadius,
+  breakpoints,
+  fontSizes,
+  maxWidth,
+  spacingValues,
+} from "@/helpers/tailwind-units.ts";
 import Value from "@/pages/main/value.vue";
 
 const basePixel = ref(16)
@@ -26,6 +33,7 @@ const spacing = computed(() => {
   return getUnitName(spacingValues, value)
 })
 const radius = computed(() => getUnitName(borderRadius, pixels.value))
+const blur = computed(() => getUnitName(blurFilter, pixels.value))
 </script>
 
 <template>
@@ -102,6 +110,8 @@ const radius = computed(() => getUnitName(borderRadius, pixels.value))
           <Value :value="spacing" />
           <p>Border radius:</p>
           <Value :value="radius" />
+          <p>Blur / backdrop-blur:</p>
+          <Value :value="blur" />
         </div>
       </div>
     </div>

@@ -109,3 +109,14 @@ export const maxWidth: Unit = {
     1152: 'max-w-6xl',
     1280: 'max-w-7xl',
 }
+
+export const blurFilter: Unit = {
+    //key in px
+    4: 'blur-xs',
+    8: 'blur-sm',
+    12: 'blur-md',
+    16: 'blur-lg',
+    24: 'blur-xl',
+    40: 'blur-2xl',
+    64: 'blur-3xl',
+}
